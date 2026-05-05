@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+*.egg-info/
+
+# Data & dumps
+*.bz2
+*.xml
+*.npy
+*.npz
+*.csv
+*.json
+
+# Images / output
+*.png
+*.jpg
+*.jpeg
+
+# PDFs / references
+references/
+
+# Editors & OS
+.idea/
+.vscode/
+*.swp
+*~
+.DS_Store
