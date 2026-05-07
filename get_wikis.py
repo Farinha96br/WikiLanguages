@@ -32,29 +32,21 @@ def list_remote_files(url):
     
 
 
-# list all the remote files
 for wiki in wiki_lists:
     url = final_url(wiki, latest_date)
-    files = list_remote_files(url)
+    print(f"\nChecking {wiki}: {url}")
 
+    try:
+        files = list_remote_files(url)
+        if files is None:
+            continue
 
+        dest = os.path.join(wiki_folder, wiki)
+        os.makedirs(dest, exist_ok=True)
+        print(f"  Found {len(files)} .bz2 file(s), downloading to {dest}")
 
-#for wiki in wiki_lists:
-#    url = final_url(wiki, latest_date)
-#    print(f"\nChecking {wiki}: {url}")
-#
-#    try:
-#        files = check_and_get_files(url)
-#        if files is None:
-#            print(f"  _SUCCESS not found, skipping {wiki}")
-#            continue
-#
-#        dest = os.path.join(wiki_folder, wiki)
-#        os.makedirs(dest, exist_ok=True)
-#        print(f"  Found {len(files)} .bz2 file(s), downloading to {dest}")
-#
-#        for file_url in files:
-#            subprocess.run(['wget', '-c', '-P', dest, file_url], check=True)
-#
-#    except Exception as e:
-#        print(f"  Error processing {wiki}: {e}")
+        for file_url in files:
+            subprocess.run(['wget', '-c', '-P', dest, file_url], check=True)
+
+    except Exception as e:
+        print(f"  Error processing {wiki}: {e}")
