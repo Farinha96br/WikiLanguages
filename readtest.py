@@ -2,8 +2,10 @@ import bz2
 import xml.etree.ElementTree as ET
 import numpy as np
 
-DUMP = "wiki_dumps/ptwiki-2026-04-01-p220p5177376.xml.bz2"
-OUTPUT_NPY = "pt_50k.npy"
+
+DUMP = "/home/farinha-rcgi/wikipedia_dumps/frwiki-2026-04-01-p3p3466457.xml.bz2"
+
+OUTPUT_NPY = "fr_100k.npy"
 
 
 
@@ -11,7 +13,7 @@ OUTPUT_NPY = "pt_50k.npy"
 NS = "{http://www.mediawiki.org/xml/export-0.11/}"
 
 EXCLUDED_PREFIXES = np.array(["Ficheiro:", "Imagem:", "File:", "Categoria:"])
-BASE_URL = "https://pt.wikipedia.org/wiki/"
+BASE_URL = "https://fr.wikipedia.org/wiki/"
 MAX_PAGES = 100_000
 
 
