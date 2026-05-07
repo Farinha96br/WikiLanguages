@@ -46,7 +46,11 @@ for wiki in wiki_lists:
         print(f"  Found {len(files)} .bz2 file(s), downloading to {dest}")
 
         for file_url in files:
-            subprocess.run(['wget', '-c', '-P', dest, file_url], check=True)
+            filename = file_url.split('/')[-1]
+            if os.path.exists(os.path.join(dest, filename)):
+                print(f"  Skipping {filename} (already exists)")
+                continue
+            subprocess.run(['wget', '-P', dest, file_url], check=True)
 
     except Exception as e:
         print(f"  Error processing {wiki}: {e}")
