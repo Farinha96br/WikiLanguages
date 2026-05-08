@@ -50,7 +50,7 @@ for wiki in wiki_lists:
             if os.path.exists(os.path.join(dest, filename)):
                 print(f"  Skipping {filename} (already exists)")
                 continue
-            subprocess.run(['wget', '-P', dest, file_url], check=True)
+            subprocess.run(['wget', '-q', '--show-progress', '-P', dest, file_url], check=True)
 
     except Exception as e:
         print(f"  Error processing {wiki}: {e}")
