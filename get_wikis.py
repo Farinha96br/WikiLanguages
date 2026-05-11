@@ -6,7 +6,7 @@ from urllib.parse import urljoin
 from utils.etc import cprint
 
 wiki_folder = '/home/farinha/wiki/'
-wiki_lists = ['ptwiki', 'eswiki', 'dewiki', 'frwiki', 'itwiki', 'ruwiki', 'jawiki', 'kowiki', 'zhwiki']
+wiki_lists = ['ptwiki', 'eswiki', 'dewiki', 'frwiki', 'itwiki', 'ruwiki', 'jawiki', 'kowiki', 'zhwiki', 'enwiki']
 latest_date = "2026-05-01"
 
 def final_url(wiki, date):
